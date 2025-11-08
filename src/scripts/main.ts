@@ -9,7 +9,10 @@ const game = new ex.Engine({
     height: 512,
     pixelArt: true,
     pixelRatio: 1,
-    displayMode: ex.DisplayMode.FitScreen
+    displayMode: ex.DisplayMode.FitScreen,
+    physics: {
+        gravity: ex.vec(0, 700)
+    }
 });
 
 const mapResource = SceneHelper.getMap("/ForestMap.tmj"); 

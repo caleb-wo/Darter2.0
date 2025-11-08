@@ -16,6 +16,7 @@ export class LevelOne extends Ex.Scene {
     override onInitialize(engine: Ex.Engine): void {
         const player = new Player();
         this.map.addToScene(this);
+        const layers = this.map.getObjectLayers();
         this.add(player);
         console.log(this.map.getObjectLayers());
     }
