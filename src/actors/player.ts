@@ -11,5 +11,6 @@ export class Player extends ex.Actor {
             height: 16,
             color: ex.Color.Orange
         });
+        this.body.collisionType = ex.CollisionType.Active;
     }
 }
