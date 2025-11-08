@@ -7,6 +7,7 @@ import { SceneHelper } from "./sceneHelper";
 
 export class LevelOne extends Ex.Scene {
     map: TiledResource;
+    platforms: Platform[] = []
 
     constructor(mapResource: TiledResource){
         super();
@@ -16,8 +17,20 @@ export class LevelOne extends Ex.Scene {
     override onInitialize(engine: Ex.Engine): void {
         const player = new Player();
         this.map.addToScene(this);
-        const layers = this.map.getObjectLayers();
+        const colliders = this.map.getObjectLayers()[0];
+
+        if (colliders?.objects){
+            for (const obj of colliders?.objects){
+                console.log(obj.tiledObject.name);
+                this.platforms.push(
+                    new Platform(obj.tiledObject.width!, obj.tiledObject.height!, Ex.vec(obj.x, obj.y))
+                );
+            }
+        }
+
+        for (const plat of this.platforms){
+            this.add(plat);
+        }
         this.add(player);
-        console.log(this.map.getObjectLayers());
     }
 }

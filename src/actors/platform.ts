@@ -6,6 +6,8 @@ export class Platform extends ex.Actor {
             pos: position,
             width: platWidth,
             height: platHeight,
+            anchor: ex.vec(0,0),
         });
+        this.body.collisionType = ex.CollisionType.Fixed;
     }
 }
