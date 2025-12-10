@@ -5,8 +5,8 @@ import { Player } from "../actors/player"
 import { LevelOne } from "../scenes/level1";
 
 const game = new ex.Engine({
-    width: 1024,
-    height: 1024,
+    width: 512,
+    height: 512,
     pixelArt: true,
     pixelRatio: 1,
     displayMode: ex.DisplayMode.FitScreen,
