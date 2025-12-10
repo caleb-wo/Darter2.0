@@ -35,15 +35,15 @@ export class Player extends ex.Actor {
         });
 
         this.on('collisionend', (ev) => {
-            if (ev.side === ex.Side.Bottom) {
-                this.isGrounded = false;
-            }
             // Wall separation logic
             if (ev.side === ex.Side.Left) {
                 this.isWallSlidingLeft = false;
             }
             if (ev.side === ex.Side.Right) {
                 this.isWallSlidingRight = false;
+            }
+            if (ev.side === ex.Side.Bottom) {
+                this.isGrounded = false;
             }
         });
     }
