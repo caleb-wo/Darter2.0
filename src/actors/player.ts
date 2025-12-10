@@ -64,8 +64,18 @@ export class Player extends ex.Actor {
             this.acc.x = Config.PlayerAcceleration;
         }
 
-        if (this.isGrounded && this.isJumpInputActive(engine)) {
-            this.vel.y = Config.PlayerJumpVelocity;
+        if (this.isJumpInputActive(engine)){
+            if (this.isGrounded) {
+                this.vel.y = Config.PlayerJumpVelocity;
+            }
+            if (this.isWallSlidingLeft) {
+                this.vel.y = Config.PlayerJumpVelocity;
+                this.vel.x = Config.PlayerWallKick;
+            } 
+            if (this.isWallSlidingRight) {
+                this.vel.y = Config.PlayerJumpVelocity;
+                this.vel.x = -Config.PlayerWallKick;
+            }
         }
 
         this.vel.x = ex.clamp(this.vel.x, Config.PlayerMinVelocity, Config.PlayerMaxVelocity);
