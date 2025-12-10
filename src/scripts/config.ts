@@ -1,7 +1,7 @@
 import * as Ex from "excalibur";
 
 export const Config = {
-    PlayerStartPos: Ex.vec(39, 1000),
+    PlayerStartPos: Ex.vec(208, 304),
     PlayerAcceleration: 250,
     PlayerJumpVelocity: -250,
     PlayerMinVelocity: -300,
