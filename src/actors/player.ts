@@ -49,6 +49,7 @@ export class Player extends ex.Actor {
     }
 
     private isJumpInputActive(engine: ex.Engine): boolean {
+        // Checks if a jump input was given
         return engine.input.keyboard.wasPressed(ex.Keys.Space)
                || engine.input.keyboard.wasPressed(ex.Keys.W);
     }
@@ -65,6 +66,7 @@ export class Player extends ex.Actor {
         }
 
         if (this.isJumpInputActive(engine)){
+            // If jump input is received, check for jump or wall kick
             if (this.isGrounded) {
                 this.vel.y = Config.PlayerJumpVelocity;
             }
