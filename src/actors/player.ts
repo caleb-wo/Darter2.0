@@ -55,14 +55,14 @@ export class Player extends ex.Actor {
     }
 
     override onPostUpdate(engine: ex.Engine): void {
-        this.acc.x = 0;
+        this.vel.x = 0
 
         if (engine.input.keyboard.isHeld(ex.Keys.A) || engine.input.keyboard.isHeld(ex.Keys.ArrowLeft)) {
-            this.acc.x = -Config.PlayerAcceleration;
+            this.vel.x = -Config.PlayerAcceleration;
         }
 
         if (engine.input.keyboard.isHeld(ex.Keys.D) || engine.input.keyboard.isHeld(ex.Keys.ArrowRight)) {
-            this.acc.x = Config.PlayerAcceleration;
+            this.vel.x = Config.PlayerAcceleration;
         }
 
         if (this.isJumpInputActive(engine)){
