@@ -3,7 +3,6 @@ import { TiledResource } from "@excaliburjs/plugin-tiled";
 
 import { Player } from "../actors/player";
 import { Platform } from "../actors/platform";
-import { SceneHelper } from "./sceneHelper";
 
 export class LevelOne extends Ex.Scene {
     map: TiledResource;
@@ -15,10 +14,13 @@ export class LevelOne extends Ex.Scene {
     }
 
     override onInitialize(engine: Ex.Engine): void {
+        // Create player
         const player = new Player();
+        // Add tiled resource to scene
         this.map.addToScene(this);
-        const colliders = this.map.getObjectLayers()[0];
 
+        // Setup platforms
+        const colliders = this.map.getObjectLayers()[0];
         if (colliders?.objects){
             for (const obj of colliders?.objects){
                 console.log(obj.tiledObject.name);
@@ -28,11 +30,14 @@ export class LevelOne extends Ex.Scene {
             }
         }
 
+        // Add all platforms
         for (const plat of this.platforms){
             this.add(plat);
         }
+        // Add player
         this.add(player);
     
+        // Map dimensions and border
         const mapWidth = 512;
         const mapHeight = 512;
         const wallThickness = 10; // How thick the invisible walls are
